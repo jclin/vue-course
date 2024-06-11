@@ -25,7 +25,7 @@ export default {
         {
           id: 'p2',
           image:
-            'https://upload.wikimedia.org/wikipedia/en/thumb/c/c9/Tent_at_High_Shelf_Camp_cropped.jpg/640px-Tent_at_High_Shelf_Camp_cropped.jpg',
+            'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Tent_at_High_Shelf_Camp_cropped.jpg/640px-Tent_at_High_Shelf_Camp_cropped.jpg',
           title: 'Mountain Tent',
           description: 'A tent for the ambitious outdoor tourist.',
           price: 129.99,
@@ -40,26 +40,12 @@ export default {
           price: 6.99,
         },
       ],
-      cart: { items: [], total: 0, qty: 0 },
     };
   },
   provide() {
     return {
       products: this.products,
-      cart: this.cart,
-      removeProductFromCart: this.removeProductFromCart,
     };
-  },
-  methods: {
-    removeProductFromCart(prodId) {
-      const productInCartIndex = this.cart.items.findIndex(
-        (cartItem) => cartItem.productId === prodId
-      );
-      const prodData = this.cart.items[productInCartIndex];
-      this.cart.items.splice(productInCartIndex, 1);
-      this.cart.qty -= prodData.qty;
-      this.cart.total -= prodData.price * prodData.qty;
-    },
   },
 };
 </script>
