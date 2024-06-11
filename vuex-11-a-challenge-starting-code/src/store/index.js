@@ -1,6 +1,11 @@
 import { createStore } from 'vuex';
 
+import cartModule from './cart/index';
+
 const store = createStore({
+  modules: {
+    shoppingCart: cartModule
+  },
   state() {
     return {
       isLoggedIn: false,
